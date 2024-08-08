@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { ModeToggle } from "@/components/ui/mode-toggle";
-import Image from "next/image";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
   return (
@@ -19,7 +21,48 @@ export default function Home() {
         </svg>
 
         <h1 className="text-4xl font-extrabold uppercase">Sphere</h1>
-        <Button>Entrar</Button>
+        <Tabs defaultValue="entrar">
+          <TabsList>
+            <TabsTrigger value="entrar">Entrar</TabsTrigger>
+            <TabsTrigger value="registrar">Registrar</TabsTrigger>
+          </TabsList> 
+
+        <TabsContent value="entrar">
+          <form>
+            <div>
+              <Label htmlFor="email">email</Label>
+              <Input id="email" placeholder="email@servidor.com"/>
+            </div>
+            <div>
+              <Label htmlFor="senha">senha</Label>
+              <Input id="senha" type="password"/>
+            </div>
+            <Button>Entrar</Button>
+          </form>
+        </TabsContent>
+
+        <TabsContent value="registrar">
+        <form>
+            <div>
+              <Label htmlFor="email">Nome</Label>
+              <Input id="Nome" />
+            </div>
+            <div>
+              <Label htmlFor="bio">bio</Label>
+              <Input id="bio" />
+            </div>
+            <div>
+              <Label htmlFor="email">email</Label>
+              <Input id="email" placeholder="email@servidor.com"/>
+            </div>
+            <div>
+              <Label htmlFor="senha">senha</Label>
+              <Input id="senha" type="password"/>
+            </div>
+            <Button>Criar Conta</Button>
+          </form>
+        </TabsContent>
+        </Tabs>
       </section>
 
     </main>
